@@ -12,6 +12,7 @@ const gallery = [
 ]
 
 function ProfilePage({ loggedUsername }) {
+  // Fallback quando l'utente non e' valorizzato nello stato globale.
   const username = loggedUsername || "paolett"
 
   return (
@@ -50,10 +51,22 @@ function ProfilePage({ loggedUsername }) {
             <br />
             Building mini social app ogni giorno.
           </p>
+
+          <div className="profile-page__quick-actions" aria-label="Azioni profilo">
+            <button type="button" className="profile-page__quick-btn">
+              Condividi profilo
+            </button>
+            <button type="button" className="profile-page__quick-btn profile-page__quick-btn--ghost">
+              Impostazioni
+            </button>
+          </div>
         </div>
       </header>
 
       <section className="profile-page__highlights" aria-label="In evidenza">
+        <h3 className="profile-page__section-title">Highlights</h3>
+
+        {/* Ogni voce evidenza e' generata dall'array highlights. */}
         {highlights.map((item) => (
           <div key={item} className="profile-page__highlight-item">
             <span className="profile-page__highlight-ring" />
@@ -63,6 +76,9 @@ function ProfilePage({ loggedUsername }) {
       </section>
 
       <section className="profile-page__gallery" aria-label="Galleria post">
+        <h3 className="profile-page__section-title profile-page__section-title--gallery">I tuoi post</h3>
+
+        {/* Gallery a griglia alimentata dall'array di immagini demo. */}
         {gallery.map((image, index) => (
           <article key={image} className="profile-page__tile">
             <img src={image} alt={`Post ${index + 1} di ${username}`} />

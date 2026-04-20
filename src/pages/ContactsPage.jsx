@@ -5,9 +5,25 @@ function ContactsPage() {
       <p className="page__subtitle">Scrivici per supporto o collaborazioni.</p>
 
       <div className="page__card">
-        <p>Email: support@instapaolett.dev</p>
-        <p>Instagram: @instapaolett</p>
-        <p>Orari: Lun - Ven, 09:00 - 18:00</p>
+        <h3 className="page__card-title">Canali disponibili</h3>
+
+        {/* Link pronti per azioni rapide da desktop o mobile. */}
+        <div className="page__contact-grid">
+          <a className="page__contact-item" href="mailto:support@instapaolett.dev">
+            <span>Email</span>
+            <strong>support@instapaolett.dev</strong>
+          </a>
+
+          <a className="page__contact-item" href="https://www.instagram.com" target="_blank" rel="noreferrer">
+            <span>Instagram</span>
+            <strong>@instapaolett</strong>
+          </a>
+
+          <div className="page__contact-item" role="status" aria-live="polite">
+            <span>Orari</span>
+            <strong>Lun - Ven, 09:00 - 18:00</strong>
+          </div>
+        </div>
       </div>
     </section>
   )

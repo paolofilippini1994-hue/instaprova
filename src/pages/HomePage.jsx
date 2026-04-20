@@ -1,5 +1,6 @@
 import PostCard from "../components/postcard"
 
+// Dati demo del feed principale.
 const posts = [
   {
     id: 1,
@@ -29,20 +30,31 @@ const posts = [
 
 function HomePage() {
   return (
-    <section className="page">
-      <h2 className="page__title">Home</h2>
-      <p className="page__subtitle">Feed principale con gli ultimi post.</p>
+    <section className="page page--home">
+      <header className="page__hero">
+        <h2 className="page__title">Home</h2>
+        <p className="page__subtitle">Feed principale con gli ultimi post.</p>
 
-      {posts.map((post) => (
-        <PostCard
-          key={post.id}
-          username={post.username}
-          profileImage={post.profileImage}
-          image={post.image}
-          caption={post.caption}
-          likes={post.likes}
-        />
-      ))}
+        <div className="page__badges" aria-label="Riepilogo feed">
+          <span className="page__badge">{posts.length} post disponibili</span>
+          <span className="page__badge">Tema social caldo</span>
+          <span className="page__badge">UI responsive</span>
+        </div>
+      </header>
+
+      <div className="page__feed">
+        {/* Render dinamico delle card a partire dall'array locale. */}
+        {posts.map((post) => (
+          <PostCard
+            key={post.id}
+            username={post.username}
+            profileImage={post.profileImage}
+            image={post.image}
+            caption={post.caption}
+            likes={post.likes}
+          />
+        ))}
+      </div>
     </section>
   )
 }
