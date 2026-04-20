@@ -1,0 +1,100 @@
+$primary-color: #0f172a;
+$secondary-color: #64748b;
+
+
+.app-shell {
+  background: linear-gradient(180deg, #f9fafb 0%, #eef2ff 100%);
+  min-height: 100vh;
+
+  &__header {
+    margin-bottom: 22px;
+  }
+
+  &__welcome {
+    text-align: center;
+    color: #475569;
+    margin: 8px 0 16px;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #1e293b;
+    background: #e2e8f0;
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-weight: 600;
+    transition: background 0.15s ease, color 0.15s ease;
+
+    &:hover {
+      background: #cbd5e1;
+    }
+
+    &.is-active {
+      background: $primary-color;
+      color: #fff;
+    }
+  }
+
+  &__main {
+    min-height: 360px;
+  }
+
+  &__logout {
+    background: #ef4444;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 16px;
+    display: block;
+    margin: 20px auto 0;
+    cursor: pointer;
+    font-weight: 700;
+
+    &:hover {
+      background: #dc2626;
+    }
+  }
+}
+
+.page {
+  &__title {
+    margin: 0;
+    text-align: center;
+    color: #0f172a;
+  }
+
+  &__subtitle {
+    margin: 8px 0 18px;
+    text-align: center;
+    color: $secondary-color;
+    font-weight: 500;
+  }
+
+  &__card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  &__back-link {
+    display: inline-block;
+    margin: 10px auto 0;
+    text-decoration: none;
+    background: #0f172a;
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-weight: 600;
+  }
+}

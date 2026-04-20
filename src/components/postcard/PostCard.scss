@@ -1,0 +1,74 @@
+.post-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  margin: 20px auto;
+  max-width: 500px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    font-weight: bold;
+    border-bottom: 1px solid #efefef;
+  }
+
+  &__avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #f43f5e;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px 4px;
+  }
+
+  &__icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    color: #111;
+    transition: transform 0.15s ease, color 0.15s ease;
+
+    &:hover {
+      transform: scale(1.06);
+    }
+
+    &:first-child:hover {
+      color: #f43f5e;
+    }
+
+    svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+  }
+
+  &__content {
+    padding: 4px 10px 10px;
+  }
+
+  &__likes {
+    margin: 0 0 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+}
