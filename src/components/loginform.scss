@@ -7,6 +7,7 @@ $error: #c94047;
 $accent: #f28f6b;
 
 .login {
+  box-sizing: border-box;
   min-height: 100vh;
   background:
     radial-gradient(circle at 14% 14%, rgba(242, 143, 107, 0.28) 0, rgba(242, 143, 107, 0) 30%),
@@ -17,13 +18,20 @@ $accent: #f28f6b;
   align-items: center;
   padding: 20px;
 
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
   &__form {
     background: $form-bg;
     backdrop-filter: blur(8px);
     padding: 40px 28px 32px;
     border-radius: 22px;
     border: 1px solid $border;
-    width: min(100%, 370px);
+    width: 100%;
+    max-width: 370px;
     text-align: center;
     box-shadow:
       0 12px 26px rgba(21, 58, 74, 0.12),
@@ -41,6 +49,7 @@ $accent: #f28f6b;
 
   &__input {
     width: 100%;
+    min-height: 44px;
     padding: 12px;
     margin-bottom: 10px;
     border-radius: 10px;
@@ -102,6 +111,26 @@ $accent: #f28f6b;
     font-size: 15px;
     width: 30px;
     height: 28px;
+  }
+
+  &__password-wrapper .login__input {
+    padding-right: 46px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login {
+    padding: 14px;
+
+    &__form {
+      max-width: 340px;
+      padding: 28px 18px 24px;
+      border-radius: 18px;
+    }
+
+    &__title {
+      margin-bottom: 20px;
+    }
   }
 }
 

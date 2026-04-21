@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import "./loginform.scss"
 
 function LoginForm({ onLogin }) {
@@ -6,11 +6,20 @@ function LoginForm({ onLogin }) {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
 
+  // Riferimenti agli input per gestire il focus
+  const usernameInputRef = useRef(null)
+  const passwordInputRef = useRef(null)
+
   // Messaggio mostrato quando le credenziali non sono corrette
   const [error, setError] = useState("")
 
   // Controlla se la password va mostrata in chiaro o nascosta
   const [showPassword, setShowPassword] = useState(false)
+
+  useEffect(() => {
+    // Focus iniziale sul campo username
+    usernameInputRef.current?.focus()
+  }, [])
 
   function onFormSubmit(e) {
     // Evita il refresh della pagina al submit del form
@@ -26,6 +35,7 @@ function LoginForm({ onLogin }) {
 
     // Se le credenziali non combaciano, mostra errore
     setError("Username o password errati")
+    passwordInputRef.current?.focus()
   }
 
   return (
@@ -34,6 +44,7 @@ function LoginForm({ onLogin }) {
         <h1 className="login__title">Instagram Paolett</h1>
 
         <input
+          ref={usernameInputRef}
           type="text"
           placeholder="Username"
           value={username}
@@ -44,6 +55,7 @@ function LoginForm({ onLogin }) {
 
         <div className="login__password-wrapper">
           <input
+            ref={passwordInputRef}
             type={showPassword ? "text" : "password"}
             placeholder="Password"
             value={password}
